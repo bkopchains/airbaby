@@ -8,8 +8,8 @@ export default function Home() {
         className={styles.logo}
         src="/airbaby_text.svg"
         alt="airbaby logo, baby"
-        width={500}
-        height={500}
+        width={400}
+        height={400}
         priority
       />
     </main>

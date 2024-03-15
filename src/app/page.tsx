@@ -6,7 +6,7 @@ export default function Home() {
     <main className={styles.main}>
       <Image
         className={styles.logo}
-        src="/airbaby/airbaby_text.svg"
+        src="/airbaby_text.svg"
         alt="airbaby logo, baby"
         width={400}
         height={400}

@@ -42,7 +42,7 @@ export default function Header() {
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
         <Image
           className={styles.logo}
-          src="/airbaby/airbaby.svg"
+          src="/airbaby.svg"
           alt="airbaby logo, baby"
           width={50}
           height={50}

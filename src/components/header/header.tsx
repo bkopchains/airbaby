@@ -73,8 +73,8 @@ export default function Header() {
                 Baby
               </Text>
               <IconChevronDown
-                style={{ width: rem(16), height: rem(16), rotate: linksOpened ? '-180deg' : '0deg', transition: 'all 0.25s' }}
-                color={theme.colors.blue[6]}
+                style={{ marginLeft: rem(5), width: rem(16), height: rem(16), rotate: linksOpened ? '-180deg' : '0deg', transition: 'all 0.25s' }}
+                color={theme.colors.pink[6]}
               />
             </Center>
           </UnstyledButton>

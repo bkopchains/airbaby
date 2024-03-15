@@ -39,6 +39,14 @@
 .drawerLink {
   padding: rem(8px) rem(12px);
 }
+.drawerLinkText {
+  padding-left: rem(8px)
+}
+
+.drawerHeader, .drawerBody {
+  background-color: var(--mantine-color-body);
+}
+
 .subLink {
   width: 100%;
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);

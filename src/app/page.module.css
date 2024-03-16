@@ -6,6 +6,11 @@
   justify-content: center;
   padding: 6rem;
   height: calc(100vh - rem(56px));
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding: 2rem;
+    justify-content: st;
+  }
 }
 
 .description {

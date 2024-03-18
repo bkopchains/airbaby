@@ -12,3 +12,11 @@
     justify-content: st;
   }
 }
+
+.logo {
+  position: relative;
+
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+}

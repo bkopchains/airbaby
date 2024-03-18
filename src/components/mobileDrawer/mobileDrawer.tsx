@@ -1,7 +1,7 @@
 "use client"
 import { Text, Center, Collapse, Divider, Drawer, ScrollArea, UnstyledButton, rem, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from "@mantine/hooks";
-import styles from "./header.module.css"
+import styles from "./mobileDrawer.module.css"
 import { IconAirBalloon, IconBabyBottle, IconBabyCarriage, IconBusinessplan, IconChevronDown } from '@tabler/icons-react';
 import { MockLinks } from './mockLinks';
 
@@ -36,6 +36,24 @@ export default function MobileDrawer(props: IDrawerProps) {
       <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
         <Divider my="xs" />
         <div>
+          <UnstyledButton onClick={toggleLinks}>
+            <Center className={styles.drawerLink} inline>
+              <IconBabyCarriage
+                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
+                color={theme.colors.pink[6]}
+              />
+              <Text className={styles.drawerLinkText} size="md" fw={500} >
+                Our Solutions
+              </Text>
+              <IconChevronDown
+                style={{ marginLeft: rem(5), width: rem(16), height: rem(16), rotate: linksOpened ? '-180deg' : '0deg', transition: 'all 0.25s' }}
+                color={theme.colors.pink[6]}
+              />
+            </Center>
+          </UnstyledButton>
+        </div>
+        <Collapse in={linksOpened}>{<MockLinks close={onClose} />}</Collapse>
+        {/* <div>
           <Center className={styles.drawerLink} inline>
             <IconAirBalloon
               style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
@@ -46,24 +64,6 @@ export default function MobileDrawer(props: IDrawerProps) {
             </Text>
           </Center>
         </div>
-        <div>
-          <UnstyledButton onClick={toggleLinks}>
-            <Center className={styles.drawerLink} inline>
-              <IconBabyCarriage
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                color={theme.colors.pink[6]}
-              />
-              <Text className={styles.drawerLinkText} size="md" fw={500} >
-                Baby
-              </Text>
-              <IconChevronDown
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16), rotate: linksOpened ? '-180deg' : '0deg', transition: 'all 0.25s' }}
-                color={theme.colors.pink[6]}
-              />
-            </Center>
-          </UnstyledButton>
-        </div>
-        <Collapse in={linksOpened}>{<MockLinks close={onClose} />}</Collapse>
         <div>
           <Center className={styles.drawerLink} inline>
             <IconBusinessplan
@@ -85,7 +85,7 @@ export default function MobileDrawer(props: IDrawerProps) {
               Baby
             </Text>
           </Center>
-        </div>
+        </div> */}
       </ScrollArea>
     </Drawer>
   );

@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import { Container, Text, Button, Group, MantineGradient } from '@mantine/core';
-import classes from './hero.module.css';
+import styles from './hero.module.css';
 import { IconBrandGithub } from '@tabler/icons-react';
 
 const gradient: MantineGradient = { from: 'pink', to: 'blue' }
 
-export function Hero() {
+export default function Hero() {
   return (
-    <div className={classes.wrapper}>
-      <Container size={700} className={classes.inner}>
-        <h1 className={classes.title}>
+    <div className={styles.wrapper}>
+      <Container size={700} className={styles.inner}>
+        <h1 className={styles.title}>
           Building{' '}
           <Text component="span" variant="gradient" gradient={gradient} inherit>
             totally safe
@@ -17,14 +17,14 @@ export function Hero() {
           solutions for you and your babies
         </h1>
 
-        <Text className={classes.description}>
+        <Text className={styles.description}>
           From the brilliant mind behind RentABaby™, comes exciting new business solutions! Stay tuned for more.
         </Text>
 
-        <Group className={classes.controls}>
+        <Group className={styles.controls}>
           <Button
             size="xl"
-            className={classes.control}
+            className={styles.control}
             variant="gradient"
             gradient={gradient}
           >
@@ -36,7 +36,7 @@ export function Hero() {
             href="https://github.com/bkopchains/airbaby"
             size="xl"
             variant="default"
-            className={classes.control}
+            className={styles.control}
             leftSection={<IconBrandGithub size={20}/>}
           >
             GitHub

@@ -1,11 +1,11 @@
 "use client"
-import { Text, Burger, Button, Center, Collapse, Container, Divider, Drawer, Group, ScrollArea, UnstyledButton, rem, useMantineTheme } from '@mantine/core';
+import { Burger, Container, Group, useMantineTheme } from '@mantine/core';
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./header.module.css"
-import { IconAirBalloon, IconBabyBottle, IconBabyCarriage, IconBusinessplan, IconChevronDown } from '@tabler/icons-react';
-import { MockLinks } from './mockLinks';
+import Link from 'next/link';
+import MobileDrawer from '../mobileDrawer';
 
 const links = [
   { link: '/', label: 'Air' },
@@ -40,88 +40,21 @@ export default function Header() {
     <header className={styles.header}>
       <Container size="md" className={styles.inner}>
         <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
-        <Image
-          className={styles.logo}
-          src="/airbaby.svg"
-          alt="airbaby logo, baby"
-          width={50}
-          height={50}
-          priority
-        />
+        <Link href={"/"}>
+          <Image
+            className={styles.logo}
+            src="/airbaby.svg"
+            alt="airbaby logo, baby"
+            width={50}
+            height={50}
+            priority
+          />
+        </Link>
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
       </Container>
-      <Drawer
-        opened={opened}
-        onClose={close}
-        size="75%"
-        padding="md"
-        title="Airbaby Solutions, Baby"
-        hiddenFrom="xs"
-        overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
-        classNames={{
-          root: styles.drawer,
-          header: styles.drawerHeader,
-          body: styles.drawerBody
-        }}
-        zIndex={1000000}
-      >
-        <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
-          <Divider my="xs" />
-          <div>
-            <Center className={styles.drawerLink} inline>
-              <IconAirBalloon
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                color={theme.colors.pink[6]}
-              />
-              <Text className={styles.drawerLinkText} size="md" fw={500} >
-                Air
-              </Text>
-            </Center>
-          </div>
-          <div>
-            <UnstyledButton onClick={toggleLinks}>
-              <Center className={styles.drawerLink} inline>
-                <IconBabyCarriage
-                  style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                  color={theme.colors.pink[6]}
-                />
-                <Text className={styles.drawerLinkText} size="md" fw={500} >
-                  Baby
-                </Text>
-                <IconChevronDown
-                  style={{ marginLeft: rem(5), width: rem(16), height: rem(16), rotate: linksOpened ? '-180deg' : '0deg', transition: 'all 0.25s' }}
-                  color={theme.colors.pink[6]}
-                />
-              </Center>
-            </UnstyledButton>
-          </div>
-          <Collapse in={linksOpened}>{<MockLinks />}</Collapse>
-          <div>
-            <Center className={styles.drawerLink} inline>
-              <IconBusinessplan
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                color={theme.colors.pink[6]}
-              />
-              <Text className={styles.drawerLinkText} size="md" fw={500} >
-                Solutions
-              </Text>
-            </Center>
-          </div>
-          <div>
-            <Center className={styles.drawerLink} inline>
-              <IconBabyBottle
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                color={theme.colors.pink[6]}
-              />
-              <Text className={styles.drawerLinkText} size="md" fw={500} >
-                Baby
-              </Text>
-            </Center>
-          </div>
-        </ScrollArea>
-      </Drawer>
+      <MobileDrawer opened={opened} onClose={close} />
     </header>
   );
 }

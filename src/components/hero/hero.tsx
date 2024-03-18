@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Container, Text, Button, Group, MantineGradient } from '@mantine/core';
 import classes from './hero.module.css';
+import { IconBrandGithub } from '@tabler/icons-react';
 
 const gradient: MantineGradient = { from: 'pink', to: 'blue' }
 
@@ -17,7 +18,7 @@ export function Hero() {
         </h1>
 
         <Text className={classes.description}>
-          From the brilliant mind behind RentABaby™️, comes exciting new business solutions! Stay tuned for more.
+          From the brilliant mind behind RentABaby™, comes exciting new business solutions! Stay tuned for more.
         </Text>
 
         <Group className={classes.controls}>
@@ -36,7 +37,7 @@ export function Hero() {
             size="xl"
             variant="default"
             className={classes.control}
-            leftSection={<Image className={classes.logo} src="/airbaby.svg" alt="airbaby" width={20} height={20} />}
+            leftSection={<IconBrandGithub size={20}/>}
           >
             GitHub
           </Button>

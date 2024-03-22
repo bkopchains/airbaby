@@ -92,7 +92,7 @@ body {
       var(--background-start-hex),
       var(--background-end-hex)
     )
-    var(--background-start-hex);
+    var(--foreground-hex);
 }
 
 a {

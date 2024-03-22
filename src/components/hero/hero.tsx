@@ -27,6 +27,8 @@ export default function Hero() {
             className={styles.control}
             variant="gradient"
             gradient={gradient}
+            component='a'
+            href='/info/getStarted'
           >
             Get started
           </Button>

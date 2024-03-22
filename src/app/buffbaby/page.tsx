@@ -1,14 +1,13 @@
-import styles from "./page.module.css";
 import rootStyles from "@/app/main.module.css";
 import Image from "next/image";
 
-export default function Home() {
+export default function BuffBaby() {
   return (
-    <main className={styles.main}>
+    <main className={rootStyles.main}>
       <Image
         className={rootStyles.logo}
         src="/buffbaby.svg"
-        alt="airbaby logo, baby"
+        alt="buffbaby logo, baby"
         width={400}
         height={400}
       />

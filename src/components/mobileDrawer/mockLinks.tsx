@@ -1,15 +1,9 @@
 import { UnstyledButton, Group, ThemeIcon, rem, Text, useMantineTheme } from "@mantine/core";
-import { IconAirBalloon, IconPlane, IconPlanet, IconBarbell, IconHeartHandshake } from "@tabler/icons-react";
+import { IconBarbell, IconHeartHandshake, IconHearts } from "@tabler/icons-react";
 import styles from "./mobileDrawer.module.css"
 import Link from "next/link";
 
 const mockdata: { icon: any, title: string, description: string, href: string }[] = [
-  {
-    icon: IconBarbell,
-    title: 'Buff Baby',
-    description: 'get swole, baby',
-    href: '/buffbaby'
-  },
   {
     icon: IconHeartHandshake,
     title: 'RentABaby',
@@ -17,22 +11,16 @@ const mockdata: { icon: any, title: string, description: string, href: string }[
     href: '/rentababy'
   },
   {
-    icon: IconAirBalloon,
-    title: 'Air',
-    description: 'air baby? solutions.',
-    href: '/'
+    icon: IconHearts,
+    title: 'BabyMatch',
+    description: 'babies deserve love too, baby',
+    href: '/babymatch'
   },
   {
-    icon: IconPlane,
-    title: 'Baby',
-    description: 'babybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybabybaby',
-    href: '/'
-  },
-  {
-    icon: IconPlanet,
-    title: 'Solutions',
-    description: '👶',
-    href: '/'
+    icon: IconBarbell,
+    title: 'Buff Baby',
+    description: 'get swole, baby',
+    href: '/buffbaby'
   }
 ];
 

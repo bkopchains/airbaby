@@ -20,7 +20,7 @@ const links = [
   { link: "/rentababy", label: "RentABaby" },
   { link: "/buffbaby", label: "BuffBaby" },
   { link: "/babymatch", label: "BabyMatch" },
-  { link: "/about", label: "About" },
+  { link: "/info/about", label: "About" },
 ];
 
 export default function Header() {

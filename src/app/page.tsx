@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 import rootStyles from "@/app/main.module.css";
 import Hero from "@/components/hero/hero";
 

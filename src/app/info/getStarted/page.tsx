@@ -2,6 +2,7 @@ import { ImageCard } from "@/components/card";
 import styles from "./page.module.css";
 import {
   Button,
+  Card,
   Container,
   Grid,
   GridCol,
@@ -10,6 +11,7 @@ import {
   Skeleton,
   rem,
 } from "@mantine/core";
+import HorizontalCard from "@/components/card/horizontalCard/horizontalCard";
 
 const PRIMARY_COL_HEIGHT = rem(300);
 
@@ -31,13 +33,23 @@ export default function GetStarted() {
           />
           <Grid gutter="md">
             <GridCol>
-              <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" />
+              <HorizontalCard
+                title="Baby Rental"
+                subtitle="The BEST way to get your hands on a baby in 2024!"
+                avatarSrc="/rentababy_logo.svg"
+                username="Rentababy"
+                dateText="Mar 20"
+              />
             </GridCol>
             <GridCol span={6}>
-              <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" />
+              <Card withBorder radius="md">
+                Hey!
+              </Card>
             </GridCol>
             <GridCol span={6}>
-              <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" />
+              <Card withBorder radius="md">
+                Rent a baby!
+              </Card>
             </GridCol>
           </Grid>
         </SimpleGrid>
@@ -45,17 +57,48 @@ export default function GetStarted() {
       <Container my="md">
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
           <Grid gutter="md">
+            <GridCol span={6}>
+              <Card withBorder radius="md">
+                Hey!
+              </Card>
+            </GridCol>
+            <GridCol span={6}>
+              <Card withBorder radius="md">
+                Rent a baby!
+              </Card>
+            </GridCol>
             <GridCol>
-              <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" />
+              <HorizontalCard
+                flipped
+                title="Baby Rental"
+                subtitle="The BEST way to get your hands on a baby in 2024!"
+                avatarSrc="/rentababy_logo.svg"
+                username="Rentababy"
+                dateText="Mar 20"
+              />
             </GridCol>
-            <GridCol span={6}>
-              <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" />
-            </GridCol>
-            <GridCol span={6}>
-              <Skeleton height={SECONDARY_COL_HEIGHT} radius="md" />
+            <GridCol>
+              <HorizontalCard
+                title="Baby Rental"
+                subtitle="The BEST way to get your hands on a baby in 2024!"
+                avatarSrc="/rentababy_logo.svg"
+                username="Rentababy"
+                dateText="Mar 20"
+              />
             </GridCol>
           </Grid>
-          <Skeleton height={PRIMARY_COL_HEIGHT} radius="md" />
+          <ImageCard
+            flipped
+            title="buffbaby"
+            subtitle="Keep your baby as buff as ever!"
+            footer={
+              <div style={{display: 'flex', justifyContent: 'end', width: '100%'}}>
+                <Button component="a" href="/rentababy" color="pink">
+                  More Info
+                </Button>
+              </div>
+            }
+          />
         </SimpleGrid>
       </Container>
     </main>

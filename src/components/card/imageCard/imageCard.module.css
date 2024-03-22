@@ -4,8 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  background-size: 75%;
-  background-position: center;
+  background-size: 50%;
   background-image: url(/pattern.svg);
 }
 

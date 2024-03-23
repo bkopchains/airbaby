@@ -4,7 +4,6 @@
 
 .imageCol {
   height: 200px;
-  overflow: hidden
 }
 
 .title {
@@ -16,5 +15,9 @@
 }
 
 .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: var(--mantine-spacing-md);
+  box-shadow: #00000055 0 0 10px 2px;
 }

@@ -20,6 +20,7 @@ const BuffBabyCard = () => (
     flipped
     title="buffbaby"
     subtitle="Keep your baby as buff as ever!"
+    className={styles.buffBkg}
     footer={
       <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
         <Button component="a" href="/buffbaby" color="pink">
@@ -38,6 +39,7 @@ export default function GetStarted() {
       <Container my="md">
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
           <ImageCard
+            className={styles.rentBkg}
             title="rentababy"
             subtitle="On-demand baby rentals!"
             footer={
@@ -49,6 +51,7 @@ export default function GetStarted() {
           <Grid gutter="md">
             <GridCol>
               <HorizontalCard
+                bkgClass={styles.rentBkg}
                 title="Baby Rental"
                 subtitle="The BEST way to get your hands on a baby in 2024!"
                 avatarSrc="/rentababy_logo.svg"
@@ -75,6 +78,17 @@ export default function GetStarted() {
             <BuffBabyCard />
           </Container>
           <Grid gutter="md">
+            <GridCol>
+              <HorizontalCard
+                flipped
+                bkgClass={styles.buffBkg}
+                title="Infant Fitness"
+                subtitle="I've never seen such a jacked toddler!"
+                avatarSrc="/buffbaby.svg"
+                username="Kajal C."
+                dateText="Apr 22"
+              />
+            </GridCol>
             <GridCol span={6}>
               <Card withBorder radius="md">
                 Rent a baby!
@@ -87,21 +101,12 @@ export default function GetStarted() {
             </GridCol>
             <GridCol>
               <HorizontalCard
-                flipped
-                title="Baby Rental"
-                subtitle="The BEST way to get your hands on a baby in 2024!"
-                avatarSrc="/rentababy_logo.svg"
-                username="Rentababy"
-                dateText="Mar 20"
-              />
-            </GridCol>
-            <GridCol>
-              <HorizontalCard
-                title="Baby Rental"
-                subtitle="The BEST way to get your hands on a baby in 2024!"
-                avatarSrc="/rentababy_logo.svg"
-                username="Rentababy"
-                dateText="Mar 20"
+                bkgClass={styles.buffBkg}
+                title="Parenting"
+                subtitle="My kid can beat me up now - and yours can too!"
+                avatarSrc="/airbaby.svg"
+                username="Beanius"
+                dateText="Nov 27"
               />
             </GridCol>
           </Grid>

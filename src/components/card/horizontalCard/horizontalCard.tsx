@@ -7,15 +7,14 @@ interface IHorizontalCard {
   title: string;
   subtitle: string;
   avatarSrc: string;
+  bkgClass: string;
   username: string;
   dateText: string;
   flipped?: boolean;
 }
 
-const ImageComponent = () => (
-  <GridCol className={styles.imageCol} span={3}>
-    <Image alt="rentababy" src="/pattern.svg" height={200} width={220} />
-  </GridCol>
+const ImageComponent = (props: { bkgClass: string }) => (
+  <GridCol className={`${styles.imageCol} ${props.bkgClass}`} span={3} />
 );
 
 export default function HorizontalCard({
@@ -26,7 +25,7 @@ export default function HorizontalCard({
   return (
     <Card withBorder radius="md" p={0} className={styles.card}>
       <Grid gutter={0}>
-        {!flipped && <ImageComponent />}
+        {!flipped && <ImageComponent bkgClass={props.bkgClass} />}
         <GridCol span={9} className={styles.body}>
           <Text tt="uppercase" c="dimmed" fw={700} size="xs">
             {title}
@@ -53,7 +52,7 @@ export default function HorizontalCard({
             </Text>
           </Group>
         </GridCol>
-        {flipped && <ImageComponent />}
+        {flipped && <ImageComponent bkgClass={props.bkgClass} />}
       </Grid>
     </Card>
   );

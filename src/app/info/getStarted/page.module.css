@@ -6,3 +6,21 @@
     justify-content: st;
   }
 }
+
+.buffBkg {
+  background-size: 500px;
+  background-image: url(/pattern2_light.svg);
+  
+  @media (prefers-color-scheme: dark) { 
+    background-image: url(/pattern2_dark.svg);
+  }
+}
+
+.rentBkg {
+  background-size: 220px;
+  background-image: url(/pattern_light.svg);
+
+  @media (prefers-color-scheme: dark) { 
+    background-image: url(/pattern_dark.svg);
+  }
+}

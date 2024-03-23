@@ -6,7 +6,7 @@ export default function BuffBaby() {
     <main className={rootStyles.main}>
       <Image
         className={rootStyles.logo}
-        src="/buffbaby.svg"
+        src="/buffbaby_logo.svg"
         alt="buffbaby logo, baby"
         width={400}
         height={400}

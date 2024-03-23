@@ -6,12 +6,13 @@ import {
   Container,
   Grid,
   GridCol,
-  Paper,
   SimpleGrid,
-  Skeleton,
+  Text,
   rem,
+  Center,
 } from "@mantine/core";
 import HorizontalCard from "@/components/card/horizontalCard/horizontalCard";
+import FunChart from "@/components/charts/rentababy";
 
 const PRIMARY_COL_HEIGHT = rem(300);
 
@@ -54,19 +55,19 @@ export default function GetStarted() {
                 bkgClass={styles.rentBkg}
                 title="Baby Rental"
                 subtitle="The BEST way to get your hands on a baby in 2024!"
-                avatarSrc="/rentababy_logo.svg"
+                avatarSrc="/rentababy_logo.png"
                 username="Rentababy"
                 dateText="Mar 20"
               />
             </GridCol>
-            <GridCol span={6}>
-              <Card withBorder radius="md">
-                Hey!
-              </Card>
-            </GridCol>
-            <GridCol span={6}>
-              <Card withBorder radius="md">
-                Rent a baby!
+            <GridCol>
+              <Card className={styles.card} radius="md">
+                <Center>
+                  <Text className={styles.titleText} mt="xs" mb="md">
+                    Fun Levels / Babies Rented
+                  </Text>
+                </Center>
+                <FunChart />
               </Card>
             </GridCol>
           </Grid>
@@ -84,27 +85,23 @@ export default function GetStarted() {
                 bkgClass={styles.buffBkg}
                 title="Infant Fitness"
                 subtitle="I've never seen such a jacked toddler!"
-                avatarSrc="/buffbaby.svg"
+                avatarSrc="/buffbaby_logo.png"
                 username="Kajal C."
                 dateText="Apr 22"
               />
             </GridCol>
             <GridCol span={6}>
-              <Card withBorder radius="md">
-                Rent a baby!
-              </Card>
+              <Card radius="md">Airbaby!</Card>
             </GridCol>
             <GridCol span={6}>
-              <Card withBorder radius="md">
-                Hey!
-              </Card>
+              <Card radius="md">Solutions baby!</Card>
             </GridCol>
             <GridCol>
               <HorizontalCard
                 bkgClass={styles.buffBkg}
                 title="Parenting"
                 subtitle="My kid can beat me up now - and yours can too!"
-                avatarSrc="/airbaby.svg"
+                avatarSrc="/airbaby.png"
                 username="Beanius"
                 dateText="Nov 27"
               />

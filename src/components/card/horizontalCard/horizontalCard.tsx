@@ -23,7 +23,7 @@ export default function HorizontalCard({
 }: IHorizontalCard) {
   const { avatarSrc, title, subtitle, username, dateText } = props;
   return (
-    <Card withBorder radius="md" p={0} className={styles.card}>
+    <Card  radius="md" p={0} className={styles.card}>
       <Grid gutter={0}>
         {!flipped && <ImageComponent bkgClass={props.bkgClass} />}
         <GridCol span={9} className={styles.body}>
@@ -35,13 +35,9 @@ export default function HorizontalCard({
           </Text>
           <Group wrap="nowrap" gap="xs">
             <Group gap="xs" wrap="nowrap">
-              <Avatar
-                className={
-                  avatarSrc.includes(".svg") ? rootStyles.logo : undefined
-                }
-                size={20}
-                src={avatarSrc}
-              />
+              <Avatar size={25} >
+                <Image className={rootStyles.logo} src={avatarSrc} width={20} height={20} alt={`${username} avatar`}/>
+              </Avatar>
               <Text size="xs">{username}</Text>
             </Group>
             <Text size="xs" c="dimmed">

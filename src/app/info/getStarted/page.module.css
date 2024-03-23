@@ -7,6 +7,18 @@
   }
 }
 
+.card {
+  background-color: var(--mantine-color-body);
+}
+
+.titleText {
+  font-weight: bold;
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+  line-height: 1.2;
+}
+
 .buffBkg {
   background-size: 500px;
   background-image: url(/pattern2_light.svg);

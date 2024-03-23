@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Container, Text, Button, Group, MantineGradient } from '@mantine/core';
 import styles from './hero.module.css';
-import { IconBrandGithub } from '@tabler/icons-react';
+import { IconBabyCarriage, IconInfoCircle, IconQuestionMark } from '@tabler/icons-react';
 
 const gradient: MantineGradient = { from: 'pink', to: 'blue' }
 
@@ -30,18 +30,18 @@ export default function Hero() {
             component='a'
             href='/info/getStarted'
           >
-            Get started
+            Learn More
           </Button>
 
           <Button
             component="a"
-            href="https://github.com/bkopchains/airbaby"
+            href="/info/about"
             size="xl"
             variant="default"
             className={styles.control}
-            leftSection={<IconBrandGithub size={20}/>}
+            leftSection={<IconBabyCarriage size={20}/>}
           >
-            GitHub
+            About Us
           </Button>
         </Group>
       </Container>

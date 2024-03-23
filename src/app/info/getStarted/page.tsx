@@ -64,7 +64,7 @@ export default function GetStarted() {
               <Card className={styles.card} radius="md">
                 <Center>
                   <Text className={styles.titleText} mt="xs" mb="md">
-                    Fun Levels / Babies Rented
+                    Fun Level / Babies Rented
                   </Text>
                 </Center>
                 <FunChart />
@@ -85,7 +85,7 @@ export default function GetStarted() {
                 bkgClass={styles.buffBkg}
                 title="Infant Fitness"
                 subtitle="I've never seen such a jacked toddler!"
-                avatarSrc="/buffbaby_logo.png"
+                avatarSrc="/babymatch_logo.png"
                 username="Kajal C."
                 dateText="Apr 22"
               />

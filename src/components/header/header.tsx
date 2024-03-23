@@ -5,7 +5,7 @@ import {
   Center,
   Container,
   Group,
-  useMantineTheme,
+  ThemeIcon,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
@@ -13,8 +13,8 @@ import Image from "next/image";
 import styles from "./header.module.css";
 import rootStyles from "@/app/main.module.css";
 import Link from "next/link";
-import MobileDrawer from "../mobileDrawer";
 import { usePathname } from "next/navigation";
+import MenuDrawer from "../drawer";
 
 const links = [
   { link: "/rentababy", label: "RentABaby" },
@@ -24,33 +24,46 @@ const links = [
 ];
 
 export default function Header() {
-  const path = usePathname()
+  const path = usePathname();
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => {
     const isCurrent = path === link.link;
     return (
-    <Button
-      component="a"
-      key={link.label}
-      href={link.link}
-      variant="gradient"
-      gradient={{from: 'pink', to: isCurrent ? 'blue' : 'pink'}}
-      onClick={() => {
-        setActive(link.link);
-      }}
-    >
-      {link.label}
-    </Button>
-  )});
+      <Button
+        component="a"
+        key={link.label}
+        href={link.link}
+        variant="gradient"
+        gradient={{ from: "pink", to: isCurrent ? "blue" : "pink" }}
+        onClick={() => {
+          setActive(link.link);
+        }}
+      >
+        {link.label}
+      </Button>
+    );
+  });
 
   return (
     <header className={styles.header}>
       <Container size="md" className={styles.inner}>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <ThemeIcon size={34} variant="default" radius="md">
+          <Burger opened={opened} onClick={toggle} size="sm" />
+        </ThemeIcon>
         <Link href={"/"}>
-          <Center>
+          <Center visibleFrom="xs">
+            <Image
+              className={rootStyles.logo}
+              src="/airbaby_text.svg"
+              alt="airbaby logo, baby"
+              width={125}
+              height={50}
+              priority
+            />
+          </Center>
+          <Center hiddenFrom="xs">
             <Image
               className={rootStyles.logo}
               src="/airbaby.svg"
@@ -61,11 +74,11 @@ export default function Header() {
             />
           </Center>
         </Link>
-        <Group gap={5} visibleFrom="xs">
+        {/* <Group gap={5} visibleFrom="xs">
           {items}
-        </Group>
+        </Group> */}
       </Container>
-      <MobileDrawer opened={opened} onClose={close} />
+      <MenuDrawer opened={opened} onClose={close} />
     </header>
   );
 }

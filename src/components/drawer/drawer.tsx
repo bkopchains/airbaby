@@ -11,7 +11,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import styles from "./mobileDrawer.module.css";
+import styles from "./drawer.module.css";
 import {
   IconAirBalloon,
   IconBabyBottle,
@@ -27,7 +27,7 @@ interface IDrawerProps {
   onClose: () => void;
 }
 
-export default function MobileDrawer(props: IDrawerProps) {
+export default function MenuDrawer(props: IDrawerProps) {
   const { opened, onClose } = props;
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -36,10 +36,10 @@ export default function MobileDrawer(props: IDrawerProps) {
     <Drawer
       opened={opened}
       onClose={onClose}
-      size="75%"
+      size="sm"
       padding="md"
       title="Airbaby Solutions, Baby"
-      hiddenFrom="xs"
+      // hiddenFrom="xs"
       overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
       classNames={{
         root: styles.drawer,

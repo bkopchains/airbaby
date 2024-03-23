@@ -11,7 +11,7 @@ import {
   IconHeartHandshake,
   IconHearts,
 } from "@tabler/icons-react";
-import styles from "./mobileDrawer.module.css";
+import styles from "./drawer.module.css";
 import Link from "next/link";
 
 const mockdata: {

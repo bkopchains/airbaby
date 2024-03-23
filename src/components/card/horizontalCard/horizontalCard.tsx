@@ -30,7 +30,7 @@ export default function HorizontalCard({
           <Text tt="uppercase" c="dimmed" fw={700} size="xs">
             {title}
           </Text>
-          <Text className={styles.title} mt="xs" mb="md">
+          <Text tt="initial" className={styles.title} mt="xs" mb="md">
             {subtitle}
           </Text>
           <Group wrap="nowrap" gap="xs">

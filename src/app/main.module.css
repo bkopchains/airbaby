@@ -13,13 +13,33 @@
   }
 }
 
+.dark {
+  @mixin dark {
+    display: none;
+  }
+
+  @mixin light {
+    display: block;
+  }
+}
+
+.light {
+  @mixin light {
+    display: none;
+  }
+
+  @mixin dark {
+    display: block;
+  }
+}
+
 .logo {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
   position: relative;
 
-  @media (prefers-color-scheme: dark) {
+  @mixin dark {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }
 }

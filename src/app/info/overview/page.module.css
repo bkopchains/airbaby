@@ -23,7 +23,7 @@
   background-size: 500px;
   background-image: url(/pattern2_light.svg);
   
-  @media (prefers-color-scheme: dark) { 
+  @mixin dark { 
     background-image: url(/pattern2_dark.svg);
   }
 }
@@ -32,7 +32,7 @@
   background-size: 220px;
   background-image: url(/pattern_light.svg);
 
-  @media (prefers-color-scheme: dark) { 
+  @mixin dark { 
     background-image: url(/pattern_dark.svg);
   }
 }

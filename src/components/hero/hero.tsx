@@ -28,7 +28,7 @@ export default function Hero() {
             variant="gradient"
             gradient={gradient}
             component='a'
-            href='/info/getStarted'
+            href='/info/overview'
           >
             Learn More
           </Button>

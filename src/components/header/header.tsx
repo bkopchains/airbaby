@@ -1,20 +1,24 @@
 "use client";
 import {
+  ActionIcon,
   Burger,
   Button,
   Center,
   Container,
   Group,
   ThemeIcon,
+  useComputedColorScheme,
+  useMantineColorScheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useState } from "react";
 import Image from "next/image";
 import styles from "./header.module.css";
 import rootStyles from "@/app/main.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MenuDrawer from "../drawer";
+import { IconSun, IconMoon } from "@tabler/icons-react";
+import cx from "clsx";
 
 const links = [
   { link: "/rentababy", label: "RentABaby" },
@@ -24,26 +28,12 @@ const links = [
 ];
 
 export default function Header() {
-  const path = usePathname();
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
 
-  const items = links.map((link) => {
-    const isCurrent = path === link.link;
-    return (
-      <Button
-        component="a"
-        key={link.label}
-        href={link.link}
-        variant="gradient"
-        gradient={{ from: "pink", to: isCurrent ? "blue" : "pink" }}
-        onClick={() => {
-          setActive(link.link);
-        }}
-      >
-        {link.label}
-      </Button>
-    );
+  const path = usePathname();
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme("light", {
+    getInitialValueInEffect: true,
   });
 
   return (
@@ -74,6 +64,24 @@ export default function Header() {
             />
           </Center>
         </Link>
+        <ThemeIcon
+          size={34}
+          variant="default"
+          radius="md"
+          onClick={() =>
+            setColorScheme(computedColorScheme === "light" ? "dark" : "light")
+          }
+          aria-label="Toggle color scheme"
+        >
+          <IconSun
+            className={cx(rootStyles.icon, rootStyles.light)}
+            stroke={1.5}
+          />
+          <IconMoon
+            className={cx(rootStyles.icon, rootStyles.dark)}
+            stroke={1.5}
+          />
+        </ThemeIcon>
         {/* <Group gap={5} visibleFrom="xs">
           {items}
         </Group> */}

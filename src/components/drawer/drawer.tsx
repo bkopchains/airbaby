@@ -13,14 +13,13 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import styles from "./drawer.module.css";
 import {
-  IconAirBalloon,
-  IconBabyBottle,
   IconBabyCarriage,
-  IconBusinessplan,
   IconChevronDown,
   IconInfoCircle,
+  IconNews,
 } from "@tabler/icons-react";
 import { MockLinks } from "./mockLinks";
+import LinkButton from "./linkButton";
 
 interface IDrawerProps {
   opened: boolean;
@@ -31,6 +30,9 @@ export default function MenuDrawer(props: IDrawerProps) {
   const { opened, onClose } = props;
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
+
+  const iconStyle = { marginLeft: rem(5), width: rem(20), height: rem(20) };
+  const iconColor = theme.colors.pink[6];
 
   return (
     <Drawer
@@ -53,10 +55,7 @@ export default function MenuDrawer(props: IDrawerProps) {
         <div>
           <UnstyledButton onClick={toggleLinks}>
             <Center className={styles.drawerLink} inline>
-              <IconBabyCarriage
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                color={theme.colors.pink[6]}
-              />
+              <IconBabyCarriage style={iconStyle} color={iconColor} />
               <Text className={styles.drawerLinkText} size="md" fw={500}>
                 Our Solutions
               </Text>
@@ -68,47 +67,22 @@ export default function MenuDrawer(props: IDrawerProps) {
                   rotate: linksOpened ? "-180deg" : "0deg",
                   transition: "all 0.25s",
                 }}
-                color={theme.colors.pink[6]}
+                color={iconColor}
               />
             </Center>
           </UnstyledButton>
         </div>
         <Collapse in={linksOpened}>{<MockLinks close={onClose} />}</Collapse>
-        <div>
-          <UnstyledButton component="a" href="/info/about">
-            <Center className={styles.drawerLink} inline>
-              <IconInfoCircle
-                style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-                color={theme.colors.pink[6]}
-              />
-              <Text className={styles.drawerLinkText} size="md" fw={500}>
-                About
-              </Text>
-            </Center>
-          </UnstyledButton>
-        </div>
-        {/* <div>
-          <Center className={styles.drawerLink} inline>
-            <IconBusinessplan
-              style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-              color={theme.colors.pink[6]}
-            />
-            <Text className={styles.drawerLinkText} size="md" fw={500} >
-              Solutions
-            </Text>
-          </Center>
-        </div>
-        <div>
-          <Center className={styles.drawerLink} inline>
-            <IconBabyBottle
-              style={{ marginLeft: rem(5), width: rem(16), height: rem(16) }}
-              color={theme.colors.pink[6]}
-            />
-            <Text className={styles.drawerLinkText} size="md" fw={500} >
-              Baby
-            </Text>
-          </Center>
-        </div> */}
+        <LinkButton
+          icon={<IconNews style={iconStyle} color={iconColor} />}
+          label="Overview"
+          href="/info/overview"
+        />
+        <LinkButton
+          icon={<IconInfoCircle style={iconStyle} color={iconColor} />}
+          label="About Us"
+          href="/info/about"
+        />
       </ScrollArea>
     </Drawer>
   );

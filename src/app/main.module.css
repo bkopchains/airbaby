@@ -3,13 +3,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   padding: 6rem;
   height: calc(100% - rem(56px));
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding: 2rem;
-    justify-content: st;
+    justify-content: start;
   }
 }
 

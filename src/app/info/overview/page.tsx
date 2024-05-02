@@ -11,7 +11,7 @@ import {
   rem,
   Center,
 } from "@mantine/core";
-import HorizontalCard from "@/components/card/horizontalCard/horizontalCard";
+import HorizontalCard from "@/components/card/horizontalCard";
 import FunChart from "@/components/charts/rentababy";
 
 const PRIMARY_COL_HEIGHT = rem(300);

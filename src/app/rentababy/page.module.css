@@ -5,6 +5,15 @@
 }
 
 .scrollSequence {
+  
+}
+
+.scrollContainer {
+}
+.sequenceContainer {
+  width: 100vw; 
+  height: calc((100vw * 9)/16);
+
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -13,13 +22,9 @@
   background: var(--mantine-color-red);
   transform-origin: 0%;
 
-  
   @media (max-width: $mantine-breakpoint-sm) {
     top: 30%;
   }
-}
-
-.scrollContainer {
 }
 .scrollBuffer {
   height: 200vh;

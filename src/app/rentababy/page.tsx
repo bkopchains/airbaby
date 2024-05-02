@@ -21,35 +21,25 @@ import {
 
 export default function RentABaby() {
   const ref = useRef(null);
-  const initW = typeof window !== 'undefined' ? document.body.clientWidth : 1920;
 
   const [scrolled, setScrolled] = useState(0);
-  const [WH, setWH] = useState<{ w: number; h: number }>({
-    w: initW,
-    h: (initW * 9) / 16,
-  });
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       document.body.addEventListener("scroll", scrollProgress);
-      document.body.addEventListener("res", scrollProgress);
-      const w = document.body.clientWidth;
-      setWH({ w: w, h: (w * 9) / 16 });
 
       return () => document.body.removeEventListener("scroll", scrollProgress);
     }
   }, []);
 
   const scrollProgress = () => {
-    if (typeof window !== 'undefined') {
-      const scrollPx = document.body.scrollTop;
-      const windowHeightPx =
-        document.body.scrollHeight - document.body.clientHeight;
+    const scrollPx = document.body.scrollTop;
+    const windowHeightPx =
+      document.body.scrollHeight - document.body.clientHeight;
 
-      const scrollLength = Math.ceil(((scrollPx / windowHeightPx) * 90) / 1);
+    const scrollLength = Math.ceil(((scrollPx / windowHeightPx) * 90) / 1);
 
-      setScrolled(scrollLength);
-    }
+    setScrolled(scrollLength);
   };
 
   const features: IFeatureCard[] = [
@@ -119,17 +109,17 @@ export default function RentABaby() {
         height={400}
       />
       <div className={styles.scrollContainer}>
-        <Image
-          src={`/seq/rentababy/${Math.min(Math.max(scrolled, 1), 90)
-            .toString()
-            .padStart(4, "0")}.png`}
-          width={WH.w}
-          height={WH.h}
-          className={styles.scrollSequence}
-          priority={true}
-          // quality={1}
-          alt="img sequence"
-        />
+        <div className={styles.sequenceContainer}>
+          <Image
+            src={`/seq/rentababy/${Math.min(Math.max(scrolled, 1), 90)
+              .toString()
+              .padStart(4, "0")}.png`}
+            fill
+            priority
+            quality={1}
+            alt="img sequence"
+          />
+        </div>
         <div className={styles.scrollBuffer} />
       </div>
       <Title order={2} className={styles.title} ta="center" mt="sm">

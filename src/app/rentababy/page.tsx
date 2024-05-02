@@ -21,7 +21,7 @@ import {
 
 export default function RentABaby() {
   const ref = useRef(null);
-  const initW = document.body.clientWidth;
+  const initW = typeof window !== 'undefined' ? document.body.clientWidth : 1920;
 
   const [scrolled, setScrolled] = useState(0);
   const [WH, setWH] = useState<{ w: number; h: number }>({
@@ -30,22 +30,26 @@ export default function RentABaby() {
   });
 
   useEffect(() => {
-    document.body.addEventListener("scroll", scrollProgress);
-    document.body.addEventListener("res", scrollProgress);
-    const w = document.body.clientWidth;
-    setWH({ w: w, h: (w * 9) / 16 });
+    if (typeof window !== 'undefined') {
+      document.body.addEventListener("scroll", scrollProgress);
+      document.body.addEventListener("res", scrollProgress);
+      const w = document.body.clientWidth;
+      setWH({ w: w, h: (w * 9) / 16 });
 
-    return () => document.body.removeEventListener("scroll", scrollProgress);
+      return () => document.body.removeEventListener("scroll", scrollProgress);
+    }
   }, []);
 
   const scrollProgress = () => {
-    const scrollPx = document.body.scrollTop;
-    const windowHeightPx =
-      document.body.scrollHeight - document.body.clientHeight;
+    if (typeof window !== 'undefined') {
+      const scrollPx = document.body.scrollTop;
+      const windowHeightPx =
+        document.body.scrollHeight - document.body.clientHeight;
 
-    const scrollLength = Math.ceil(((scrollPx / windowHeightPx) * 90) / 1);
+      const scrollLength = Math.ceil(((scrollPx / windowHeightPx) * 90) / 1);
 
-    setScrolled(scrollLength);
+      setScrolled(scrollLength);
+    }
   };
 
   const features: IFeatureCard[] = [

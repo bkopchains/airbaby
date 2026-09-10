@@ -8,7 +8,10 @@
     "dev": "vite --host",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deploy": "npm run build && gh-pages -d dist -t true",
+    "kit:use-local": "npm pkg set dependencies.airbaby-ui=file:../airbaby-ui && npm install",
+    "kit:use-npm": "npm pkg set dependencies.airbaby-ui=^0.1.0 && npm install"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.1.0",
@@ -28,6 +31,7 @@
     "eslint": "^8",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^6.3.0",
     "typescript": "^5",
     "vite": "^5.4.11"
   }

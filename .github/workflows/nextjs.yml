@@ -1,8 +1,20 @@
+# GitHub Pages deploy via Actions is paused while `airbaby-ui` is a local
+# `file:../airbaby-ui` dependency (CI has no sibling checkout).
+#
+# For now, ship from your machine (same idea as wedbug's cf:deploy):
+#   npm run deploy
+#
+# When airbaby-ui is on npm:
+#   1. npm run kit:use-npm
+#   2. Re-enable the `push` trigger below (uncomment it)
+#   3. In repo Settings → Pages, set source back to GitHub Actions if you
+#      switched to the gh-pages branch for local deploys
+
 name: Deploy Vite site to Pages
 
 on:
-  push:
-    branches: ["main"]
+  # push:
+  #   branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -35,9 +47,6 @@ jobs:
 
       - name: Build with Vite
         run: npm run build
-
-      - name: Add SPA fallback for GitHub Pages
-        run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

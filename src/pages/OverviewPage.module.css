@@ -1,37 +1,209 @@
 .main {
-  height: calc(100% - rem(56px));
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  min-height: calc(100dvh - 4.5rem);
+}
 
-  @media (max-width: $mantine-breakpoint-sm) {
-    padding: 2rem;
+@media (max-width: 48em) {
+  .main {
+    padding: 1rem 1rem 2.5rem;
   }
 }
 
-.card {
-  background-color: var(--mantine-color-body);
+.intro {
+  margin: 0.5rem 0 1.25rem;
+  text-align: center;
 }
 
-.titleText {
-  font-weight: bold;
-  font-family:
-    Greycliff CF,
-    var(--mantine-font-family);
+.eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rose-700);
+}
+
+.pageTitle {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  font-weight: 700;
   line-height: 1.2;
+  color: var(--zinc-900);
+}
+
+.lede {
+  margin: 0.75rem auto 0;
+  max-width: 38rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--zinc-600);
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 0 0 1.25rem;
+}
+
+@media (min-width: 48em) {
+  .statsRow {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statChip {
+  border-radius: var(--kit-radius-surface);
+  background: var(--kit-glass-bg);
+  border: 1px solid var(--kit-glass-border);
+  box-shadow: var(--kit-glass-shadow);
+  backdrop-filter: blur(var(--kit-glass-blur));
+  -webkit-backdrop-filter: blur(var(--kit-glass-blur));
+  padding: 0.95rem 0.75rem;
+  text-align: center;
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--rose-700);
+}
+
+.statLabel {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--zinc-600);
+  line-height: 1.3;
+}
+
+/* Half-width card masonry with progressive enhancement */
+.masonry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+  align-items: start;
+}
+
+@media (min-width: 48em) {
+  .masonry {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
+  }
+
+  /* Classic masonry syntax (Firefox / older previews) */
+  @supports (grid-template-rows: masonry) {
+    .masonry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: masonry;
+    }
+  }
+
+  /* Current CSS Grid L3 grid-lanes */
+  @supports (display: grid-lanes) {
+    .masonry {
+      display: grid-lanes;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: unset;
+    }
+  }
+}
+
+.footerEnd {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.noteCard {
+  border-radius: var(--kit-radius-surface);
+  background: var(--kit-glass-bg);
+  border: 1px solid var(--kit-glass-border);
+  box-shadow: var(--kit-glass-shadow);
+  backdrop-filter: blur(var(--kit-glass-blur));
+  -webkit-backdrop-filter: blur(var(--kit-glass-blur));
+  padding: 1.25rem;
+}
+
+.noteTitle {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--zinc-900);
+}
+
+.noteBody {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--zinc-600);
+  line-height: 1.45;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.chip {
+  border-radius: var(--kit-radius-surface);
+  background: var(--kit-glass-bg-heavy);
+  border: 1px solid var(--kit-glass-border);
+  box-shadow: var(--kit-glass-shadow);
+  padding: 1rem;
+  text-align: center;
+  color: var(--zinc-800);
+}
+
+.chipValue {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--rose-700);
+}
+
+.chipLabel {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--zinc-600);
 }
 
 .buffBkg {
   background-size: 500px;
   background-image: url(/pattern2_light.svg);
-
-  @mixin dark {
-    background-image: url(/pattern2_dark.svg);
-  }
 }
 
 .rentBkg {
   background-size: 220px;
   background-image: url(/pattern_light.svg);
+}
 
-  @mixin dark {
-    background-image: url(/pattern_dark.svg);
-  }
+.matchPromo {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.matchTitle {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--zinc-900);
+}
+
+.matchBody {
+  margin: 0.65rem auto 1.1rem;
+  max-width: 32rem;
+  color: var(--zinc-600);
+  line-height: 1.5;
 }

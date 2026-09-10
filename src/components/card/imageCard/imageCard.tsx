@@ -1,26 +1,31 @@
-import { Paper, Text, Title, Button } from '@mantine/core';
-import classes from './imageCard.module.css';
+import { Card } from "airbaby-ui";
+import classes from "./imageCard.module.css";
 
 interface IImageCard {
   title: string;
   subtitle: string;
   footer: React.ReactNode;
-  flipped?: boolean
-  className?: string
+  flipped?: boolean;
+  className?: string;
 }
 
-export default function ImageCard({flipped = false, ...props}: IImageCard) {
+export default function ImageCard({
+  flipped = false,
+  ...props
+}: IImageCard) {
   return (
-    <Paper shadow="md" p="xl" radius="md" className={props.className ? `${props.className} ${classes.card}` : classes.card}>
-      <div>
-        <Text className={classes.category} size="xs" ta={flipped ? 'right' : 'left'}>
-          {props.title}
-        </Text>
-        <Title order={3} className={classes.title} ta={flipped ? 'right' : 'left'}>
-          {props.subtitle}
-        </Title>
+    <Card
+      finish="glass"
+      padding="lg"
+      className={
+        props.className ? `${props.className} ${classes.card}` : classes.card
+      }
+    >
+      <div className={flipped ? classes.flipped : undefined}>
+        <p className={classes.category}>{props.title}</p>
+        <h3 className={classes.title}>{props.subtitle}</h3>
       </div>
       {props.footer}
-    </Paper>
-  )
+    </Card>
+  );
 }

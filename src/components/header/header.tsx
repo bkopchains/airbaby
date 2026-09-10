@@ -1,73 +1,98 @@
+import { Link, useLocation } from "react-router";
+import { Button, Menu } from "airbaby-ui";
+import type { MenuItemConfig } from "airbaby-ui";
+import BrandMark from "@/components/brand/BrandMark";
 import {
-  Burger,
-  Center,
-  Container,
-  ThemeIcon,
-  useComputedColorScheme,
-  useMantineColorScheme,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+  IconBabyCarriage,
+  IconBarbell,
+  IconHeartHandshake,
+  IconInfoCircle,
+  IconLayoutGrid,
+} from "@tabler/icons-react";
 import styles from "./header.module.css";
-import rootStyles from "@/styles/main.module.css";
-import { Link } from "react-router-dom";
-import MenuDrawer from "../drawer";
-import { IconSun, IconMoon } from "@tabler/icons-react";
-import cx from "clsx";
+
+const links: {
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+}[] = [
+  {
+    href: "/rentababy",
+    label: "RentABaby",
+    icon: <IconBabyCarriage size={20} stroke={1.75} />,
+  },
+  {
+    href: "/buffbaby",
+    label: "BuffBaby",
+    icon: <IconBarbell size={20} stroke={1.75} />,
+  },
+  {
+    href: "/babymatch",
+    label: "BabyMatch",
+    icon: <IconHeartHandshake size={20} stroke={1.75} />,
+  },
+  {
+    href: "/info/overview",
+    label: "Overview",
+    icon: <IconLayoutGrid size={20} stroke={1.75} />,
+  },
+  {
+    href: "/info/about",
+    label: "About",
+    icon: <IconInfoCircle size={20} stroke={1.75} />,
+  },
+];
 
 export default function Header() {
-  const [opened, { toggle, close }] = useDisclosure(false);
+  const { pathname } = useLocation();
 
-  const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme("light", {
-    getInitialValueInEffect: true,
-  });
+  const menuItems: MenuItemConfig[] = links.map((link) => ({
+    id: link.href,
+    label: link.label,
+    href: link.href,
+    icon: link.icon,
+    active: pathname === link.href,
+  }));
 
   return (
     <header className={styles.header}>
-      <Container size="md" className={styles.inner}>
-        <ThemeIcon size={34} variant="default" radius="md">
-          <Burger opened={opened} onClick={toggle} size="sm" />
-        </ThemeIcon>
-        <Link to="/">
-          <Center visibleFrom="xs">
-            <img
-              className={rootStyles.logo}
-              src="/airbaby_text.svg"
-              alt="airbaby logo, baby"
-              width={125}
-              height={50}
-            />
-          </Center>
-          <Center hiddenFrom="xs">
-            <img
-              className={rootStyles.logo}
-              src="/airbaby.svg"
-              alt="airbaby logo, baby"
-              width={50}
-              height={50}
-            />
-          </Center>
-        </Link>
-        <ThemeIcon
-          size={34}
-          variant="default"
-          radius="md"
-          onClick={() =>
-            setColorScheme(computedColorScheme === "light" ? "dark" : "light")
-          }
-          aria-label="Toggle color scheme"
-        >
-          <IconSun
-            className={cx(rootStyles.icon, rootStyles.light)}
-            stroke={1.5}
-          />
-          <IconMoon
-            className={cx(rootStyles.icon, rootStyles.dark)}
-            stroke={1.5}
-          />
-        </ThemeIcon>
-      </Container>
-      <MenuDrawer opened={opened} onClose={close} />
+      <Link to="/" className={styles.logo}>
+        <BrandMark
+          src="/airbaby_text.svg"
+          alt="Airbaby Solutions"
+          aspectRatio={871.32 / 255.41}
+          className={`${styles.logoDesktop} ${styles.logoWordmark}`}
+        />
+        <BrandMark
+          src="/airbaby.svg"
+          alt="Airbaby Solutions"
+          aspectRatio={500 / 455.15}
+          className={`${styles.logoMobile} ${styles.logoIcon}`}
+        />
+      </Link>
+
+      <div className={styles.actionsDesktop}>
+        {menuItems.map((item) => (
+          <Button
+            key={item.id}
+            finish="solid"
+            variant={item.active ? "primary" : "secondary"}
+            href={item.href}
+            size="sm"
+          >
+            {item.label}
+          </Button>
+        ))}
+      </div>
+
+      <div className={styles.actionsMobile}>
+        <Menu
+          finish="glass"
+          align="end"
+          label="Open navigation"
+          items={menuItems}
+        />
+      </div>
     </header>
   );
 }

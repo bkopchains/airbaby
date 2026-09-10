@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { BrowserRouter } from "react-router";
+import { ToastProvider } from "airbaby-ui";
 import App from "./App";
-import "@mantine/core/styles.layer.css";
-import "@mantine/charts/styles.layer.css";
+import "@fontsource/lexend/400.css";
+import "@fontsource/lexend/600.css";
+import "@fontsource/lexend/700.css";
 import "@/styles/globals.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ColorSchemeScript defaultColorScheme="auto" />
-    <MantineProvider defaultColorScheme="auto">
+    <ToastProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </MantineProvider>
+    </ToastProvider>
   </React.StrictMode>
 );

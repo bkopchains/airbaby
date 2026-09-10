@@ -1,39 +1,26 @@
-import { Card, Text, rem, useMantineTheme } from "@mantine/core";
-
+import { Card } from "airbaby-ui";
 import styles from "./featureCard.module.css";
-import { Icon, IconProps } from "@tabler/icons-react";
+import type { Icon, IconProps } from "@tabler/icons-react";
 
 export interface IFeatureCard {
   title: string;
   description: string;
-  Icon: React.ForwardRefExoticComponent<Omit<IconProps, "ref"> & React.RefAttributes<Icon>>;
+  Icon: React.ForwardRefExoticComponent<
+    Omit<IconProps, "ref"> & React.RefAttributes<Icon>
+  >;
 }
 
-
-export default function FeatureCard({
-  ...props
-}: IFeatureCard) {
+export default function FeatureCard({ ...props }: IFeatureCard) {
   const { title, description, Icon } = props;
-  const theme = useMantineTheme();
   return (
-    <Card
-      key={title}
-      shadow="md"
-      radius="md"
-      className={styles.card}
-      padding="xl"
-    >
+    <Card finish="glass" padding="lg" className={styles.card}>
       <Icon
-        style={{ width: rem(50), height: rem(50) }}
+        className={styles.icon}
         stroke={2}
-        color={theme.colors.pink[6]}
+        aria-hidden
       />
-      <Text fz="lg" fw={500} className={styles.cardTitle} mt="md">
-        {title}
-      </Text>
-      <Text fz="sm" c="dimmed" mt="sm">
-        {description}
-      </Text>
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <p className={styles.description}>{description}</p>
     </Card>
   );
 }

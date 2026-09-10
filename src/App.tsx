@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router";
 import RootLayout from "@/layouts/RootLayout";
 import HomePage from "@/pages/HomePage";
 import RentABabyPage from "@/pages/RentABabyPage";

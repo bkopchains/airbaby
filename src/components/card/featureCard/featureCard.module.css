@@ -1,31 +1,32 @@
-
-.description {
-  max-width: rem(600px);
-  margin: auto;
-
-  &::after {
-    content: '';
-    display: block;
-    background-color: var(--mantine-color-pink-filled);
-    width: rem(45px);
-    height: rem(2px);
-    margin-top: var(--mantine-spacing-sm);
-    margin-left: auto;
-    margin-right: auto;
-  }
+.card {
+  height: 100%;
 }
 
-.card {
-  border: rem(1px) solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+.icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--rose-600);
 }
 
 .cardTitle {
-  &::after {
-    content: '';
-    display: block;
-    background-color: var(--mantine-color-pink-filled);
-    width: rem(45px);
-    height: rem(2px);
-    margin-top: var(--mantine-spacing-sm);
-  }
+  margin: 1rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--zinc-900);
+}
+
+.cardTitle::after {
+  content: "";
+  display: block;
+  background-color: var(--rose-500);
+  width: 2.75rem;
+  height: 2px;
+  margin-top: 0.5rem;
+}
+
+.description {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--zinc-600);
 }

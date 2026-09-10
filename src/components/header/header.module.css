@@ -1,62 +1,81 @@
 .header {
-  height: rem(56px);
-  /* margin-bottom: rem(120px); */
-  background-color: var(--mantine-color-body);
-  border-bottom: rem(1px) solid
-    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-}
-
-.inner {
-  height: rem(56px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  padding-top: calc(0.85rem + env(safe-area-inset-top, 0px));
+  font-family: var(--font-sans);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  z-index: 50;
 }
 
-.link {
-  display: block;
-  line-height: 1;
-  padding: rem(8px) rem(12px);
-  border-radius: var(--mantine-radius-sm);
+.logo {
+  display: flex;
+  align-items: center;
+  min-width: 0;
   text-decoration: none;
-  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  font-size: var(--mantine-font-size-sm);
-  font-weight: 500;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
 
-  @mixin hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-6)
-    );
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logo:active {
+  transform: scale(0.97);
+}
+
+.logoWordmark {
+  width: auto;
+  height: 2.5rem;
+}
+
+.logoIcon {
+  width: auto;
+  height: 2.35rem;
+}
+
+.logoDesktop {
+  display: block;
+}
+
+.logoMobile {
+  display: none;
+}
+
+.actionsDesktop {
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.actionsMobile {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (min-width: 48em) {
+  .actionsDesktop {
+    display: flex;
   }
 
-  [data-mantine-color-scheme] &[data-active] {
-    background-color: var(--mantine-color-pink-filled);
-    color: var(--mantine-color-white);
+  .actionsMobile {
+    display: none;
   }
 }
 
-.drawerLink {
-  padding: rem(8px) rem(12px);
-}
-.drawerLinkText {
-  padding-left: rem(8px);
-}
+@media (max-width: 47.99em) {
+  .logoDesktop {
+    display: none;
+  }
 
-.drawerHeader,
-.drawerBody {
-  background-color: var(--mantine-color-body);
-}
-
-.subLink {
-  width: 100%;
-  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-  border-radius: var(--mantine-radius-md);
-
-  @mixin hover {
-    background-color: light-dark(
-      var(--mantine-color-gray-0),
-      var(--mantine-color-dark-7)
-    );
+  .logoMobile {
+    display: block;
   }
 }

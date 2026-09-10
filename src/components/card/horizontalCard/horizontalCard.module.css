@@ -1,23 +1,72 @@
 .card {
-  background-color: var(--mantine-color-body);
+  overflow: hidden;
+}
+
+.row,
+.rowFlipped {
+  display: grid;
+  grid-template-columns: minmax(5rem, 28%) 1fr;
+  min-height: 8.5rem;
+}
+
+.rowFlipped {
+  grid-template-columns: 1fr minmax(5rem, 28%);
+}
+
+.rowFlipped .imageCol {
+  order: 2;
+}
+
+.rowFlipped .body {
+  order: 1;
 }
 
 .imageCol {
-  height: 200px;
-}
-
-.title {
-  font-weight: bold;
-  font-family:
-    Greycliff CF,
-    var(--mantine-font-family);
-  line-height: 1.2;
+  min-height: 8.5rem;
+  background-size: cover;
+  background-position: center;
 }
 
 .body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--mantine-spacing-md);
-  box-shadow: #00000055 0 0 10px 2px;
+  padding: 1rem 1.15rem;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--zinc-500);
+}
+
+.title {
+  margin: 0.35rem 0 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  line-height: 1.25;
+  font-size: 1rem;
+  color: var(--zinc-900);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--zinc-600);
+}
+
+.username {
+  font-weight: 600;
+  color: var(--rose-700);
+}
+
+.dot,
+.date {
+  color: var(--zinc-500);
 }

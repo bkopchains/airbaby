@@ -1,51 +1,56 @@
-import { Container, Text, Button, Group, MantineGradient } from "@mantine/core";
-import { Link } from "react-router-dom";
-import styles from "./hero.module.css";
+import { Button, GradientText } from "airbaby-ui";
 import { IconBabyCarriage } from "@tabler/icons-react";
+import styles from "./hero.module.css";
 
-const gradient: MantineGradient = { from: "pink", to: "blue" };
+const stats = [
+  { value: "12 min", label: "median time-to-baby delivery" },
+  { value: "14", label: "products in active R&D" },
+  { value: "∞", label: "naptime innovations shipped" },
+];
 
 export default function Hero() {
   return (
     <div className={styles.wrapper}>
-      <Container size={700} className={styles.inner}>
+      <div className={styles.inner}>
         <h1 className={styles.title}>
-          Building{" "}
-          <Text component="span" variant="gradient" gradient={gradient} inherit>
-            totally safe
-          </Text>{" "}
-          solutions for you and your babies
+          Building <GradientText>totally safe</GradientText> solutions for you
+          and your babies
         </h1>
 
-        <Text className={styles.description}>
-          From the brilliant mind behind RentABaby™, comes exciting new business
-          solutions! Stay tuned for more.
-        </Text>
+        <p className={styles.description}>
+          From the brilliant minds behind RentABaby™ come many exciting new B2B (baby to baby) solutions
+        </p>
 
-        <Group className={styles.controls}>
+        <div className={styles.controls}>
           <Button
-            size="xl"
-            className={styles.control}
-            variant="gradient"
-            gradient={gradient}
-            component={Link}
-            to="/info/overview"
+            finish="solid"
+            variant="primary"
+            size="lg"
+            href="/info/overview"
           >
             Learn More
           </Button>
 
           <Button
-            component={Link}
-            to="/info/about"
-            size="xl"
-            variant="default"
-            className={styles.control}
-            leftSection={<IconBabyCarriage size={20} />}
+            finish="solid"
+            variant="secondary"
+            size="lg"
+            href="/info/about"
           >
+            <IconBabyCarriage size={20} aria-hidden />
             About Us
           </Button>
-        </Group>
-      </Container>
+        </div>
+
+        {/* <ul className={styles.stats}>
+          {stats.map((stat) => (
+            <li key={stat.label} className={styles.stat}>
+              <span className={styles.statValue}>{stat.value}</span>
+              <span className={styles.statLabel}>{stat.label}</span>
+            </li>
+          ))}
+        </ul> */}
+      </div>
     </div>
   );
 }

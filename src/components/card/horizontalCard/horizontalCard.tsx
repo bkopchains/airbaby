@@ -1,60 +1,59 @@
-import { Card, Avatar, Text, Group, Grid, GridCol } from "@mantine/core";
+import { Avatar, Card } from "airbaby-ui";
 import styles from "./horizontalCard.module.css";
-import rootStyles from "@/styles/main.module.css";
 
 interface IHorizontalCard {
   title: string;
   subtitle: string;
-  avatarSrc: string;
+  avatarSrc?: string;
+  /** Override avatar letters (e.g. first initial only). */
+  avatarInitials?: string;
   bkgClass: string;
   username: string;
-  dateText: string;
+  dateText?: string;
   flipped?: boolean;
 }
-
-const ImageComponent = (props: { bkgClass: string }) => (
-  <GridCol className={`${styles.imageCol} ${props.bkgClass}`} span={3} />
-);
 
 export default function HorizontalCard({
   flipped = false,
   ...props
 }: IHorizontalCard) {
-  const { avatarSrc, title, subtitle, username, dateText } = props;
+  const {
+    avatarSrc,
+    avatarInitials,
+    title,
+    subtitle,
+    username,
+    dateText,
+    bkgClass,
+  } = props;
+
   return (
-    <Card radius="md" p={0} className={styles.card}>
-      <Grid gutter={0}>
-        {!flipped && <ImageComponent bkgClass={props.bkgClass} />}
-        <GridCol span={9} className={styles.body}>
-          <Text tt="uppercase" c="dimmed" fw={700} size="xs">
-            {title}
-          </Text>
-          <Text tt="initial" className={styles.title} mt="xs" mb="md">
-            {subtitle}
-          </Text>
-          <Group wrap="nowrap" gap="xs">
-            <Group gap="xs" wrap="nowrap">
-              <Avatar size={25}>
-                <img
-                  className={rootStyles.logo}
-                  src={avatarSrc}
-                  width={20}
-                  height={20}
-                  alt={`${username} avatar`}
-                />
-              </Avatar>
-              <Text size="xs">{username}</Text>
-            </Group>
-            <Text size="xs" c="dimmed">
-              •
-            </Text>
-            <Text size="xs" c="dimmed">
-              {dateText}
-            </Text>
-          </Group>
-        </GridCol>
-        {flipped && <ImageComponent bkgClass={props.bkgClass} />}
-      </Grid>
+    <Card finish="glass" padding="none" className={styles.card}>
+      <div className={flipped ? styles.rowFlipped : styles.row}>
+        <div className={`${styles.imageCol} ${bkgClass}`} aria-hidden />
+        <div className={styles.body}>
+          <p className={styles.eyebrow}>{title}</p>
+          <h3 className={styles.title}>{subtitle}</h3>
+          <div className={styles.meta}>
+            <Avatar
+              src={avatarSrc}
+              name={username}
+              initials={avatarInitials}
+              alt={`${username} avatar`}
+              size="sm"
+            />
+            <span className={styles.username}>{username}</span>
+            {dateText ? (
+              <>
+                <span className={styles.dot} aria-hidden>
+                  •
+                </span>
+                <span className={styles.date}>{dateText}</span>
+              </>
+            ) : null}
+          </div>
+        </div>
+      </div>
     </Card>
   );
 }

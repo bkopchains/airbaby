@@ -9,7 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "deploy": "npm run build && gh-pages -d dist -t true",
+    "deploy": "npm run build && gh-pages -d dist -t --nojekyll",
     "kit:use-local": "npm pkg set dependencies.airbaby-ui=file:../airbaby-ui && npm install",
     "kit:use-npm": "npm pkg set dependencies.airbaby-ui=^0.1.0 && npm install"
   },

@@ -12,7 +12,7 @@ import {
   IconHearts,
 } from "@tabler/icons-react";
 import styles from "./drawer.module.css";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 const mockdata: {
   icon: any;
@@ -49,7 +49,7 @@ export const MockLinks = (props: IMockLinks) => {
   const theme = useMantineTheme();
   return mockdata.map((item) => (
     <UnstyledButton className={styles.subLink} key={item.title}>
-      <Link onClick={close} href={item.href}>
+      <Link onClick={close} to={item.href}>
         <Group wrap="nowrap" align="flex-start">
           <ThemeIcon size={34} variant="default" radius="md">
             <item.icon

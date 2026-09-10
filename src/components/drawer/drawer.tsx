@@ -41,7 +41,6 @@ export default function MenuDrawer(props: IDrawerProps) {
       size="sm"
       padding="md"
       title="Airbaby Solutions, Baby"
-      // hiddenFrom="xs"
       overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
       classNames={{
         root: styles.drawer,

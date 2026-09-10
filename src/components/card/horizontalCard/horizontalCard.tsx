@@ -1,7 +1,6 @@
 import { Card, Avatar, Text, Group, Grid, GridCol } from "@mantine/core";
-import Image from "next/image";
 import styles from "./horizontalCard.module.css";
-import rootStyles from "@/app/main.module.css";
+import rootStyles from "@/styles/main.module.css";
 
 interface IHorizontalCard {
   title: string;
@@ -23,7 +22,7 @@ export default function HorizontalCard({
 }: IHorizontalCard) {
   const { avatarSrc, title, subtitle, username, dateText } = props;
   return (
-    <Card  radius="md" p={0} className={styles.card}>
+    <Card radius="md" p={0} className={styles.card}>
       <Grid gutter={0}>
         {!flipped && <ImageComponent bkgClass={props.bkgClass} />}
         <GridCol span={9} className={styles.body}>
@@ -35,8 +34,14 @@ export default function HorizontalCard({
           </Text>
           <Group wrap="nowrap" gap="xs">
             <Group gap="xs" wrap="nowrap">
-              <Avatar size={25} >
-                <Image className={rootStyles.logo} src={avatarSrc} width={20} height={20} alt={`${username} avatar`}/>
+              <Avatar size={25}>
+                <img
+                  className={rootStyles.logo}
+                  src={avatarSrc}
+                  width={20}
+                  height={20}
+                  alt={`${username} avatar`}
+                />
               </Avatar>
               <Text size="xs">{username}</Text>
             </Group>
